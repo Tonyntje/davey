@@ -1,87 +1,118 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const slides = [
   {
-    image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2670&auto=format&fit=crop", // Kitchen splash
+    image: "/image3.jpeg",
     alt: "Kitchen backsplash"
   },
   {
-    image: "https://images.unsplash.com/photo-1620626011761-996317b8d101?q=80&w=2669&auto=format&fit=crop", // Bathroom tiles
+    image: "/image2.jpeg", 
     alt: "Bathroom shower marble"
   },
   {
-    image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2670&auto=format&fit=crop", // Floor tiles
+    image: "/image22.jpeg", 
     alt: "Floor tiles pattern"
   }
 ];
 
+const SLIDE_DURATION = 6000;
+
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const intervalRef = useRef(null);
+  const progressRef = useRef(null);
 
-  // Auto slide
+  const startProgress = () => {
+    // Clear any existing intervals
+    if (progressRef.current) cancelAnimationFrame(progressRef.current);
+    
+    const startTime = Date.now();
+    
+    const tick = () => {
+      const elapsed = Date.now() - startTime;
+      const pct = Math.min((elapsed / SLIDE_DURATION) * 100, 100);
+      setProgress(pct);
+      
+      if (pct < 100) {
+        progressRef.current = requestAnimationFrame(tick);
+      }
+    };
+    
+    progressRef.current = requestAnimationFrame(tick);
+  };
+
   useEffect(() => {
-    const timer = setInterval(() => {
+    startProgress();
+    
+    intervalRef.current = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
+    }, SLIDE_DURATION);
+    
+    return () => {
+      clearInterval(intervalRef.current);
+      if (progressRef.current) cancelAnimationFrame(progressRef.current);
+    };
+  }, [current]);
 
-  const handlePrev = () => setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
-  const handleNext = () => setCurrent((prev) => (prev + 1) % slides.length);
+  const goTo = (index) => {
+    clearInterval(intervalRef.current);
+    if (progressRef.current) cancelAnimationFrame(progressRef.current);
+    setCurrent(index);
+  };
+
+  const handlePrev = () => goTo((current - 1 + slides.length) % slides.length);
+  const handleNext = () => goTo((current + 1) % slides.length);
 
   return (
-    <div className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden bg-brand-black">
-      <AnimatePresence initial={false}>
-        <motion.div
-          key={current}
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
-          className="absolute inset-0"
-        >
-          <img 
-            src={slides[current].image} 
-            alt={slides[current].alt} 
-            className="w-full h-full object-cover"
-          />
-          {/* Dark Overlay for contrast */}
-          <div className="absolute inset-0 bg-black/40"></div>
-        </motion.div>
-      </AnimatePresence>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div className="relative w-full aspect-[16/7] md:aspect-[16/7] overflow-hidden shadow-xl bg-brand-black">
+        {/* Images */}
+        {slides.map((slide, idx) => (
+          <div
+            key={idx}
+            className={`absolute inset-0 transition-opacity duration-700 ${idx === current ? 'opacity-100' : 'opacity-0'}`}
+          >
+            <img 
+              src={slide.image} 
+              alt={slide.alt} 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ))}
 
-      <div className="absolute inset-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-end pb-20 z-10">
-         <div className="overflow-hidden">
-            <motion.h1 
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-playfair font-black text-white uppercase tracking-wider leading-none mb-6 drop-shadow-xl"
-            >
-              PASSIE &<br />
-              PRECISIE
-            </motion.h1>
-         </div>
-         
-         <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.8 }}
-            className="flex items-center space-x-4"
-         >
-             <button aria-label="Previous Slide" onClick={handlePrev} className="bg-white/20 hover:bg-white p-2 transition-colors group">
-                 <ChevronLeft className="text-white group-hover:text-black w-6 h-6" />
-             </button>
-             <button aria-label="Next Slide" onClick={handleNext} className="bg-white/20 hover:bg-white p-2 transition-colors group">
-                 <ChevronRight className="text-white group-hover:text-black w-6 h-6" />
-             </button>
-             <a href="#intro" className="flex items-center space-x-2 border-b border-white hover:border-transparent text-white pb-1 ml-4 uppercase text-sm font-bold tracking-widest transition-all hover:opacity-80">
-                <span>Lees meer</span>
-                <ArrowRight size={16} />
-             </a>
-         </motion.div>
+        {/* Gradient overlay — dark bottom for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none"></div>
+
+        {/* Text overlay — relies on gradient, no bg */}
+        <div className="absolute bottom-0 left-0 p-6 md:p-10 lg:p-14 z-10">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-playfair font-black text-white uppercase tracking-wider leading-[0.9] mb-4 md:mb-6 drop-shadow-lg">
+            PASSIE &<br />
+            PRECISIE
+          </h1>
+          
+          <div className="flex items-center space-x-3 mt-4 md:mt-6">
+            <button aria-label="Previous Slide" onClick={handlePrev} className="border border-white/40 hover:bg-white hover:text-black transition-colors p-1.5 md:p-2 text-white">
+              <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+            </button>
+            <button aria-label="Next Slide" onClick={handleNext} className="border border-white/40 hover:bg-white hover:text-black transition-colors p-1.5 md:p-2 text-white">
+              <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+            </button>
+            <a href="#intro" className="flex items-center space-x-2 text-white ml-3 uppercase text-xs md:text-sm font-bold tracking-widest transition-all hover:opacity-80">
+              <span>Lees meer</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        {/* Thin progress bar at the bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/20 z-20">
+          <div
+            className="h-full bg-white transition-none"
+            style={{ width: `${progress}%` }}
+          ></div>
+        </div>
       </div>
     </div>
   );

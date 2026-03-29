@@ -5,108 +5,107 @@ import Reviews from '../components/Reviews.astro';
 ---
 
 <Layout title="Home">
-  {/* Hero Section */}
+  {/* Hero Section - boxed slider */}
   <HeroSlider client:load />
 
   {/* Intro Section - Tegelwerk met passie en precisie */}
-  <section id="intro" class="py-20 bg-brand-beige dark:bg-gray-800 transition-colors duration-300">
+  <section id="intro" class="py-20 bg-brand-beige">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
       <div>
-        <h2 class="text-3xl md:text-5xl font-playfair font-black text-black dark:text-white mb-6 leading-tight">
+        <h2 class="text-3xl md:text-5xl font-playfair font-black text-black mb-4 leading-tight">
           Tegelwerk met passie en precisie
         </h2>
-        <h3 class="text-xl font-bold mb-6 dark:text-gray-200">
+        <h3 class="text-lg font-bold mb-6 text-gray-900">
           Maak kennis met Duif Tegelwerken
         </h3>
-        <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed max-w-lg mb-8">
+        <p class="text-sm text-gray-700 leading-relaxed max-w-lg mb-8">
           Mijn naam is Davey van Duivenbode. Na negen jaar met veel plezier in loondienst te hebben gewerkt, besloot ik in 2023 de sprong te wagen: de start van mijn eigen bedrijf, Duif Tegelwerken. <br><br>
-          Tijdens mijn jaren in het vak heb ik niet alleen mijn diploma's (Niveau 2 en 3) behaald, maar vooral ontdekt waar mijn daadwerkelijke passie ligt: het leveren van dé perfecte voeg, een strak badkamer design, en een complete luxe badkamer. Ik zorg dat het tot in de puntjes verzorgd is.
+          Tijdens mijn jaren in het vak heb ik niet alleen mijn diploma's (Niveau 2 en 3) behaald, maar vooral ontdekt waar mijn kracht ligt: het leveren van echt vakwerk waar mensen jarenlang van kunnen genieten. Of het nu gaat om een modern toilet, een strakke keukenvloer of een complete luxe badkamer, ik zorg dat het tot in de puntjes verzorgd is.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 items-center">
-             <a href="/contact" class="bg-brand-black text-white px-8 py-3 font-semibold text-sm rounded-sm hover:opacity-90 inline-flex items-center dark:bg-white dark:text-brand-black transition-all">
+        <div class="flex flex-col sm:flex-row gap-4 items-start">
+             <a href="/contact" class="bg-brand-black text-white px-6 py-3 font-semibold text-sm rounded-sm hover:opacity-90 inline-flex items-center transition-all">
                 Neem contact op 
-                <svg class="ml-2 w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                   <path d="M12 2C8 2 5 5 5 9c0 1.25.32 2.42.88 3.42C7 14.5 9 17 12 21c3-4 5-6.5 6.12-8.58C18.68 11.42 19 10.25 19 9c0-4-3-7-7-7zm0 10c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/>
-                </svg>
+                <img src="/pigeon-svg.svg" alt="" class="ml-2 w-4 h-4 invert" />
              </a>
-             <a href="tel:0625123794" class="text-sm font-bold underline dark:text-gray-300">Of bel 06 25 12 3794</a>
+             <a href="tel:0625123794" class="text-sm font-bold underline text-gray-900 hover:text-gray-600 py-3">of bekijk galerij</a>
         </div>
       </div>
-      <div class="relative h-96 w-full group">
+      <div class="relative h-80 md:h-96 w-full">
         <img 
-          src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2669&auto=format&fit=crop" 
+          src="/image2.jpeg" 
           alt="Davey van Duivenbode working on tiles" 
-          class="absolute inset-0 w-full h-full object-cover shadow-2xl transition-transform duration-500 group-hover:scale-105"
+          class="w-full h-full object-cover shadow-xl"
         />
-        <div class="absolute inset-0 ring-1 ring-inset ring-black/10"></div>
       </div>
     </div>
   </section>
 
-  {/* Speciality Section - Het detail zit in de hoek */}
-  <section id="specialiteit" class="py-20 bg-white dark:bg-gray-900 overflow-hidden relative transition-colors duration-300">
-     {/* Decorative subtle background tile pattern */}
-     <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(circle at center, black 1px, transparent 1px); background-size: 20px 20px;"></div>
-     
-     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
+  {/* Specialiteit Section - photo left, text right — full width */}
+  <section id="specialiteit" class="py-20 bg-white">
+     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
       
-      {/* Reverse order on mobile */}
-      <div class="order-2 md:order-1 relative h-96 w-full lg:h-[32rem]">
+      {/* Photo left */}
+      <div class="relative min-h-[400px]">
          <img 
-          src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2670&auto=format&fit=crop" 
+          src="/image4.jpeg" 
           alt="Bathroom corner detail" 
-          class="absolute inset-0 w-full h-full object-cover shadow-lg"
+          class="w-full h-full object-cover"
          />
       </div>
 
-      <div class="order-1 md:order-2">
-        <h3 class="text-lg font-bold uppercase tracking-widest text-gray-500 mb-2 dark:text-gray-400">
-           DE SPECIALITEIT
+      {/* Text right */}
+      <div class="flex flex-col justify-center p-8 md:p-12 lg:p-16">
+        <h3 class="text-sm font-bold uppercase tracking-widest text-gray-500 mb-2">
+           De Specialiteit
         </h3>
-        <h2 class="text-4xl md:text-5xl font-playfair font-black text-black dark:text-white mb-6 leading-tight">
+        <h2 class="text-3xl md:text-4xl font-playfair font-black text-black mb-6 leading-tight">
           Het detail zit in de hoek
         </h2>
-        <div class="space-y-6 text-gray-700 dark:text-gray-300 text-base leading-relaxed">
+        <div class="space-y-4 text-gray-700 text-sm leading-relaxed">
             <p><strong>Verfijnde afwerking. Wat Duif Tegelwerken onderscheidt?</strong></p>
             <p>Mijn oog voor detail, en dan met name bij de afwerking van hoeken.</p>
-            <p>Waar anderen kiezen voor de makkelijke weg, neem ik de tijd voor perfect afgeronde hoeken en verstekwerk. Het zijn juist de kleine details die van een standaard klus een luxe resultaat maken.</p>
+            <p>Waar anderen kiezen voor de makkelijke weg, neem ik de tijd voor perfect afgeronde hoekjes en verstekwerk. Het zijn juist de kleine details die van een standaard klus een luxe resultaat maken.</p>
         </div>
       </div>
     </div>
   </section>
 
-  {/* Werwijze Section */}
-  <section id="werkwijze" class="py-20 bg-brand-beige dark:bg-gray-800 transition-colors duration-300">
-     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-      
-      <div>
-        <h2 class="text-4xl md:text-5xl font-playfair font-black text-black dark:text-white mb-8 leading-tight">
-          Mijn werkwijze
-        </h2>
-        <div class="space-y-6 text-gray-700 dark:text-gray-300 text-base leading-relaxed mb-8">
-            <p><strong>Eerlijk advies en korte lijntjes.<br />Ik geloof in helderheid.</strong></p>
-            <p>Geen ingewikkelde verhalen, maar gewoon goede communicatie en doen wat je belooft.</p>
-            <p>Afspraak is bij mij ook echt afspraak.</p>
-            <p>Omdat ik samenwerk met vaste partners, kan ik je ook volledig ontzorgen bij de realisatie van een complete badkamer.</p>
-            <p>Ik werk voornamelijk in Den Haag en omstreken.</p>
+  {/* Werkwijze Section — BOXED: text + image side by side inside a contained card */}
+  <section id="werkwijze" class="py-20 bg-white">
+     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+       <div class="bg-brand-beige shadow-md grid grid-cols-1 md:grid-cols-2 items-stretch overflow-hidden">
+        
+        {/* Text left */}
+        <div class="p-8 md:p-12 flex flex-col justify-center">
+          <h2 class="text-3xl md:text-4xl font-playfair font-black text-black mb-6 leading-tight italic">
+            Mijn werkwijze
+          </h2>
+          <div class="space-y-4 text-gray-700 text-sm leading-relaxed mb-8">
+              <p><strong>Eerlijk advies en korte lijntjes.<br />Ik geloof in helderheid.</strong></p>
+              <p>Geen ingewikkelde verhalen, maar gewoon goede communicatie en doen wat je belooft.</p>
+              <p>Afspraak is bij mij ook echt afspraak.</p>
+              <p>Omdat ik samenwerk met vaste partners, kan ik je ook volledig ontzorgen bij de realisatie van een complete badkamer.</p>
+              <p>Ik werk voornamelijk in Den Haag en omstreken.</p>
+          </div>
+          <div>
+            <a href="/contact" class="bg-brand-black text-white px-6 py-3 font-semibold text-sm rounded-sm hover:bg-gray-800 transition-colors inline-flex items-center">
+                Neem contact op 
+                <img src="/pigeon-svg.svg" alt="" class="ml-2 w-4 h-4 invert" />
+            </a>
+          </div>
         </div>
-        <a href="/contact" class="bg-brand-black text-white px-8 py-3 font-semibold text-sm rounded-sm hover:opacity-90 inline-flex items-center dark:bg-white dark:text-brand-black transition-all">
-            Neem contact op 
-            <svg class="ml-2 w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-               <path d="M12 2C8 2 5 5 5 9c0 1.25.32 2.42.88 3.42C7 14.5 9 17 12 21c3-4 5-6.5 6.12-8.58C18.68 11.42 19 10.25 19 9c0-4-3-7-7-7zm0 10c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/>
-            </svg>
-        </a>
-      </div>
 
-       <div class="relative h-96 w-full lg:h-[32rem]">
-         <img 
-          src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2574&auto=format&fit=crop" 
-          alt="Floor tiles pattern laying" 
-          class="absolute inset-0 w-full h-full object-cover shadow-xl"
-         />
-      </div>
+        {/* Image right */}
+        <div class="relative min-h-[400px]">
+          <img 
+            src="/image22.jpeg" 
+            alt="Floor tiles pattern laying" 
+            class="w-full h-full object-cover"
+          />
+        </div>
 
-    </div>
+       </div>
+     </div>
   </section>
 
   {/* Reviews Section */}
