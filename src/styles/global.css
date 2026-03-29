@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --font-roboto: "Roboto", sans-serif;
+  --font-playfair: "Playfair Display", serif;
+  
+  --color-brand-beige: #F4F1ED;
+  --color-brand-black: #111111;
+  --color-brand-gray: #4A4A4A;
+}
+
+/* Custom base styles */
+@layer base {
+  body {
+    @apply font-roboto text-brand-black;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}

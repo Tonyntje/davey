@@ -1,0 +1,35 @@
+---
+import '../styles/global.css';
+import '@fontsource/playfair-display';
+import '@fontsource/roboto';
+
+import Header from '../components/Header';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Tegelwerk met passie en precisie. Maak kennis met Duif Tegelwerken." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="nl" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title} | Duif Tegelwerken</title>
+	</head>
+	<body class="bg-[#Fdfdfd] text-[#1a1a1a] font-roboto antialiased flex flex-col min-h-screen">
+		<Header client:load />
+		<main class="flex-grow">
+			<slot />
+		</main>
+		<Footer />
+		<WhatsAppButton />
+	</body>
+</html>
