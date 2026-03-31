@@ -2,22 +2,33 @@
 const year = new Date().getFullYear();
 ---
 
-<footer class="bg-brand-beige border-t border-gray-200 pt-20 pb-8 mt-auto relative overflow-hidden">
-  
+<footer
+  class="bg-brand-beige border-t border-gray-200 pt-20 pb-8 mt-auto relative overflow-hidden"
+>
   {/* Big transparent pigeons on left and right */}
-  <div class="hidden md:block absolute bottom-8 left-4 opacity-[0.06] pointer-events-none" style="transform: scaleX(-1);">
+  <div
+    class="hidden md:block absolute bottom-8 left-4 opacity-[0.06] pointer-events-none"
+  >
     <img src="/pigeon-svg.svg" alt="" class="w-[400px] h-auto" />
   </div>
-  <div class="hidden md:block absolute bottom-8 right-4 opacity-[0.06] pointer-events-none">
+  <div
+    class="hidden md:block absolute bottom-8 right-4 opacity-[0.06] pointer-events-none"
+    style="transform: scaleX(-1);"
+  >
     <img src="/pigeon-svg.svg" alt="" class="w-[400px] h-auto" />
   </div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
-      
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left"
+    >
       {/* Column 1: Navigation */}
-      <div class="md:pr-8">
-        <h3 class="font-playfair font-black text-2xl mb-8 uppercase tracking-widest border-b-2 border-black inline-block pb-1">NAVIGATIE</h3>
+      <div class="md:pr-8 mt-30">
+        <h3
+          class="text-2xl mb-8 uppercase tracking-widest border-b-2 border-black inline-block pb-1"
+        >
+          NAVIGATIE
+        </h3>
         <div class="grid grid-cols-2 gap-x-8 gap-y-3 text-sm font-medium">
           <a href="/" class="hover:underline">Home</a>
           <a href="/#over-mij" class="hover:underline">Over mij</a>
@@ -28,10 +39,21 @@ const year = new Date().getFullYear();
       </div>
 
       {/* Column 2: Logo + contact info with white background */}
-      <div class="flex flex-col items-center justify-center border-t md:border-none border-gray-300 pt-8 md:pt-0">
-        <img src="/Transparant.svg" alt="Duif Tegelwerken logo" class="w-48 mb-6" />
-        <div class="bg-white px-6 py-3 flex items-center space-x-6 text-xs font-bold shadow-sm">
-          <a href="mailto:info@duiftegelwerken.nl" class="flex items-center hover:underline">
+      <div
+        class="flex flex-col justify-center border-t md:border-none border-gray-300 pt-8 md:pt-0"
+      >
+        <img
+          src="/Transparant.svg"
+          alt="Duif Tegelwerken logo"
+          class="h-60 mb-6"
+        />
+        <div
+          class="bg-white px-6 py-3 flex items-center space-x-6 text-xs font-bold shadow-sm"
+        >
+          <a
+            href="mailto:info@duiftegelwerken.nl"
+            class="flex items-center hover:underline"
+          >
             <img src="/at-solid-full.svg" alt="" class="w-3 h-3 mr-2" />
             INFO@DUIFTEGELWERKEN.NL
           </a>
@@ -43,19 +65,34 @@ const year = new Date().getFullYear();
       </div>
 
       {/* Column 3: Contact */}
-      <div class="md:pl-8 border-t md:border-none border-gray-300 pt-8 md:pt-0">
-        <h3 class="font-playfair font-black text-2xl mb-6 uppercase tracking-widest border-b-2 border-black inline-block pb-1">CONTACT</h3>
-        <p class="text-sm mb-4">Voer uw nummer of email in, dan neem ik zo spoedig mogelijk contact met u op!</p>
-        
-        <form class="flex flex-col space-y-3" onsubmit="event.preventDefault(); alert('Bedankt! We nemen z.s.m. contact met u op.');">
-          <input 
-            type="text" 
-            placeholder="Voor je contact informatie in..." 
+      <div
+        class="mt-30 md:pl-8 border-t md:border-none border-gray-300 pt-8 md:pt-0"
+      >
+        <h3
+          class="text-2xl mb-6 uppercase tracking-widest border-b-2 border-black inline-block pb-1"
+        >
+          CONTACT
+        </h3>
+        <p class="text-sm mb-4">
+          Voer uw nummer of email in, dan neem ik zo spoedig mogelijk contact
+          met u op!
+        </p>
+
+        <form
+          class="flex flex-col space-y-3"
+          onsubmit="event.preventDefault(); alert('Bedankt! We nemen z.s.m. contact met u op.');"
+        >
+          <input
+            type="text"
+            placeholder="Voor je contact informatie in..."
             required
             class="w-full bg-white border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-black transition-colors"
           />
           <div class="flex justify-end">
-            <button type="submit" class="bg-brand-black text-white px-8 py-3 font-semibold text-sm rounded-sm hover:bg-gray-800 transition-colors inline-flex items-center active:scale-95">
+            <button
+              type="submit"
+              class="bg-brand-black text-white px-8 py-3 font-semibold text-sm rounded-sm hover:bg-gray-800 transition-colors inline-flex items-center active:scale-95"
+            >
               Verzend
               <img src="/pigeon-svg.svg" alt="" class="ml-2 w-4 h-4 invert" />
             </button>
@@ -65,8 +102,13 @@ const year = new Date().getFullYear();
     </div>
 
     {/* Bottom Bar */}
-    <div class="mt-20 pt-6 border-t border-gray-300 flex flex-col md:flex-row justify-between items-center text-xs text-gray-800">
-      <p>&copy; <strong>Duif Tegelwerken</strong> {year}. Alle rechten voorbehouden.</p>
+    <div
+      class="mt-20 pt-6 border-t border-gray-300 flex flex-col md:flex-row justify-between items-center text-xs text-gray-800"
+    >
+      <p>
+        &copy; <strong>Duif Tegelwerken</strong>
+        {year}. Alle rechten voorbehouden.
+      </p>
       <div class="flex space-x-4 mt-4 md:mt-0">
         <a href="#" class="hover:underline">Algemene voorwaarden</a>
         <span>|</span>

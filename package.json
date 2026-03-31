@@ -13,8 +13,6 @@
   },
   "dependencies": {
     "@astrojs/react": "^5.0.2",
-    "@fontsource/playfair-display": "^5.2.8",
-    "@fontsource/roboto": "^5.2.10",
     "@tailwindcss/vite": "^4.2.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",

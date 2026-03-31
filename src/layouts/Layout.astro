@@ -1,18 +1,20 @@
 ---
-import '../styles/global.css';
-import '@fontsource/playfair-display';
-import '@fontsource/roboto';
+import "../styles/global.css";
+import "@fontsource/roboto";
 
-import Header from '../components/Header';
-import Footer from '../components/Footer.astro';
-import WhatsAppButton from '../components/WhatsAppButton.astro';
+import Header from "../components/Header";
+import Footer from "../components/Footer.astro";
+import WhatsAppButton from "../components/WhatsAppButton.astro";
 
 interface Props {
 	title: string;
 	description?: string;
 }
 
-const { title, description = "Tegelwerk met passie en precisie. Maak kennis met Duif Tegelwerken." } = Astro.props;
+const {
+	title,
+	description = "Tegelwerk met passie en precisie. Maak kennis met Duif Tegelwerken.",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -22,9 +24,14 @@ const { title, description = "Tegelwerk met passie en precisie. Maak kennis met 
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<style>
+			@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+		</style>
 		<title>{title} | Duif Tegelwerken</title>
 	</head>
-	<body class="bg-[#fdfdfd] text-[#1a1a1a] font-roboto antialiased flex flex-col min-h-screen relative">
+	<body
+		class="bg-[#fdfdfd] text-[#1a1a1a] font-roboto antialiased flex flex-col min-h-screen relative"
+	>
 		{/* Pattern background with white fade */}
 		<div class="pattern-bg" aria-hidden="true"></div>
 
@@ -38,19 +45,27 @@ const { title, description = "Tegelwerk met passie en precisie. Maak kennis met 
 </html>
 
 <style>
-  .pattern-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 600px;
-    background-image: url('/Pattern.svg');
-    background-size: 78px;
-    background-repeat: repeat;
-    z-index: 0;
-    pointer-events: none;
-    opacity: 0.08;
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-  }
+	.pattern-bg {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 600px;
+		background-image: url("/Pattern.svg");
+		background-size: 78px;
+		background-repeat: repeat;
+		z-index: 0;
+		pointer-events: none;
+		opacity: 0.08;
+		-webkit-mask-image: linear-gradient(
+			to bottom,
+			rgba(0, 0, 0, 1) 0%,
+			rgba(0, 0, 0, 0) 100%
+		);
+		mask-image: linear-gradient(
+			to bottom,
+			rgba(0, 0, 0, 1) 0%,
+			rgba(0, 0, 0, 0) 100%
+		);
+	}
 </style>

@@ -1,123 +1,181 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Reviews from '../components/Reviews.astro';
+import Layout from "../layouts/Layout.astro";
+import Reviews from "../components/Reviews.astro";
 ---
 
-<Layout title="Contact" description="Heb je een tegelklus in gedachten? Neem direct contact op met Duif Tegelwerken.">
-  
-  {/* Header Section */}
-  <section class="py-20 bg-brand-beige">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-        
-        {/* Left Side: Text and Intro */}
-        <div>
-           <div class="mb-12">
-             <h1 class="text-5xl md:text-6xl font-playfair font-black text-black mb-6 italic">
-               Contact & Advies
-             </h1>
-             <h2 class="text-lg font-bold mb-6 text-gray-900">Heb je een tegelklus in gedachten?</h2>
-             
-             <div class="space-y-4 text-gray-700 leading-relaxed text-sm">
-                <p>
-                  Of het nu gaat om een wandje in de keuken, een nieuwe vloer of een complete badkamerrenovatie: ik denk graag met je mee. Bij Duif Tegelwerken houden we van korte lijntjes en duidelijke afspraken. Stuur direct een foto via de chat!
-                </p>
-                <p>
-                  <strong>Wil je snel weten wat de mogelijkheden zijn?</strong><br />
-                  Gebruik de chatknop rechtsonder om direct contact met me op te nemen.
-                </p>
-                <p class="text-sm bg-white/60 p-4 border-l-4 border-brand-black">
-                  <strong>Tip:</strong> Stuur gerust een foto mee van de huidige situatie en de afmetingen van de ruimte. Dan kan ik je vaak direct een goede eerste indicatie geven van de kosten en de planning.
-                </p>
-             </div>
-             
-             <div class="mt-8">
-                 <a href="tel:0625123794" class="bg-brand-black text-white px-6 py-3 font-semibold text-sm rounded-sm hover:opacity-90 inline-flex items-center transition-all">
-                    Neem contact op 
-                    <img src="/pigeon-svg.svg" alt="" class="ml-2 w-4 h-4 invert" />
-                 </a>
-             </div>
-           </div>
-        </div>
-
-        {/* Right Side: Image */}
-        <div class="relative h-64 sm:h-96 lg:h-full w-full min-h-[400px]">
-           <img 
-            src="/image22.jpeg" 
-            alt="Davey working on floor tiles" 
-            class="absolute inset-0 w-full h-full object-cover shadow-2xl"
-           />
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  {/* Contact Methods Section */}
-  <section class="py-20 bg-white">
-     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border border-gray-200 p-8 sm:p-12 shadow-sm">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
-            
-            {/* Left Col: Info */}
+<Layout
+   title="Contact"
+   description="Heb je een tegelklus in gedachten? Neem direct contact op met Duif Tegelwerken."
+>
+   {/* Header Section */}
+   <section class="py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Side: Text and Intro */}
             <div>
-               <h3 class="font-playfair font-black text-3xl mb-6 text-black italic">Liever bellen of mailen?</h3>
+               <div class="justify-center flex flex-col">
+                  <h1 class="text-5xl md:text-6xl text-black mb-6">
+                     Contact & Advies
+                  </h1>
+                  <h2 class="text-lg font-bold mb-6 text-gray-900">
+                     Heb je een tegelklus in gedachten?
+                  </h2>
+
+                  <div class="space-y-4 text-gray-700 leading-relaxed text-sm">
+                     <p>
+                        Of het nu gaat om een wandje in de keuken, een nieuwe
+                        vloer of een complete badkamerrenovatie: ik denk graag
+                        met je mee. Bij Duif Tegelwerken houden we van korte
+                        lijntjes en duidelijke afspraken. Stuur direct een foto
+                        via de chat!
+                     </p>
+                     <p>
+                        <strong
+                           >Wil je snel weten wat de mogelijkheden zijn?</strong
+                        ><br />
+                        Gebruik de chatknop rechtsonder om direct contact met me op
+                        te nemen.
+                     </p>
+                     <p
+                        class="text-sm bg-white/60 p-4 border-l-4 border-brand-black"
+                     >
+                        <strong>Tip:</strong> Stuur gerust een foto mee van de huidige
+                        situatie en de afmetingen van de ruimte. Dan kan ik je vaak
+                        direct een goede eerste indicatie geven van de kosten en de
+                        planning.
+                     </p>
+                  </div>
+
+                  <div class="mt-8">
+                     <a
+                        href="tel:0625123794"
+                        class="bg-brand-black text-white px-6 py-3 text-sm rounded-sm hover:opacity-90 inline-flex items-center transition-all"
+                     >
+                        Neem contact op
+                        <img
+                           src="/pigeon-svg.svg"
+                           alt=""
+                           class="ml-2 w-4 h-4 invert"
+                        />
+                     </a>
+                  </div>
+               </div>
+            </div>
+
+            {/* Right Side: Image */}
+            <div class="relative min-h-[600px]">
+               <img
+                  src="/image0.jpeg"
+                  alt="Davey working on floor tiles"
+                  class="absolute inset-0 object-center w-full h-full object-cover shadow-2xl"
+               />
+            </div>
+         </div>
+      </div>
+   </section>
+
+   {/* Contact Methods Section */}
+   <section class="py-20 bg-white">
+      <div
+         class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border border-gray-200 p-8 sm:p-12 shadow-sm"
+      >
+         <div
+            class="grid grid-cols-1 items-center justify-center md:grid-cols-2 gap-12 lg:gap-24"
+         >
+            {/* Left Col: Info */}
+            <div class="max-w-[500px]">
+               <h3 class="text-3xl mb-6 text-black">
+                  Liever bellen of mailen?
+               </h3>
                <p class="text-sm text-gray-600 mb-8 leading-relaxed">
-                  Natuurlijk kan dat ook. Ik ben het best bereikbaar tussen 08:00 en 17:00 uur. Als ik op de knieën sta te tegelen neem ik niet direct op, maar ik app of bel je altijd dezelfde dag nog terug.
+                  Natuurlijk kan dat ook. Ik ben het best bereikbaar tussen
+                  08:00 en 17:00 uur. Als ik op de knieën sta te tegelen neem ik
+                  niet direct op, maar ik app of bel je altijd dezelfde dag nog
+                  terug.
                </p>
 
                <div class="space-y-6">
                   <div>
-                      <h4 class="font-bold text-sm text-black">Telefoon/WhatsApp</h4>
-                      <p class="text-sm text-gray-700">06 25 12 3794</p>
+                     <b>Telefoon/WhatsApp</b>
+                     <p class="text-sm text-gray-700">06 25 12 3794</p>
                   </div>
                   <div>
-                      <h4 class="font-bold text-sm text-black">E-mail</h4>
-                      <p class="text-sm text-gray-700">info@duiftegelwerken.nl</p>
+                     <b>E-mail</b>
+                     <p class="text-sm text-gray-700">
+                        info@duiftegelwerken.nl
+                     </p>
                   </div>
                   <div>
-                      <h4 class="font-bold text-sm text-black">Regio</h4>
-                      <p class="text-sm text-gray-700">Den Haag en omstreken</p>
+                     <b>Regio</b>
+                     <p class="text-sm text-gray-700">Den Haag en omstreken</p>
                   </div>
                </div>
             </div>
 
             {/* Right Col: Form */}
-            <div class="bg-brand-beige/30 p-6 md:p-8 rounded-sm text-black">
-               <h3 class="font-playfair font-black text-3xl mb-8">Direct mailen?</h3>
-               
-               <form class="space-y-6" onsubmit="event.preventDefault(); alert('Bedankt! We nemen z.s.m. contact met u op.');">
+            <div class="bg-[#F4F4F4] p-6 md:p-8 rounded-sm text-black">
+               <h3 class="text-3xl mb-8">Direct mailen?</h3>
+
+               <form
+                  class="space-y-6"
+                  onsubmit="event.preventDefault(); alert('Bedankt! We nemen z.s.m. contact met u op.');"
+               >
                   <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                      <div class="flex flex-col">
-                        <label class="text-sm font-bold mb-2 text-gray-800">Naam</label>
-                        <input type="text" placeholder="Voor je contact informatie in..." required class="border border-gray-300 bg-white px-4 py-3 text-sm focus:outline-none focus:border-brand-black transition-colors" />
+                        <label class="text-sm font-bold mb-2 text-gray-800"
+                           >Naam</label
+                        >
+                        <input
+                           type="text"
+                           placeholder="Voor je contact informatie in..."
+                           required
+                           class="border border-gray-300 bg-white px-4 py-3 text-sm focus:outline-none focus:border-brand-black transition-colors"
+                        />
                      </div>
                      <div class="flex flex-col">
-                        <label class="text-sm font-bold mb-2 text-gray-800">Email adres</label>
-                        <input type="email" placeholder="Voor je contact informatie in..." required class="border border-gray-300 bg-white px-4 py-3 text-sm focus:outline-none focus:border-brand-black transition-colors" />
+                        <label class="text-sm font-bold mb-2 text-gray-800"
+                           >Email adres</label
+                        >
+                        <input
+                           type="email"
+                           placeholder="Voor je contact informatie in..."
+                           required
+                           class="border border-gray-300 bg-white px-4 py-3 text-sm focus:outline-none focus:border-brand-black transition-colors"
+                        />
                      </div>
                   </div>
-                  
+
                   <div class="flex flex-col">
-                     <label class="text-sm font-bold mb-2 text-gray-800">Soort klus</label>
-                     <textarea rows="4" placeholder="Omschrijf hier uw opdracht" required class="border border-gray-300 bg-white px-4 py-3 text-sm focus:outline-none focus:border-brand-black transition-colors resize-none"></textarea>
+                     <label class="text-sm font-bold mb-2 text-gray-800"
+                        >Soort klus</label
+                     >
+                     <textarea
+                        rows="4"
+                        placeholder="Omschrijf hier uw opdracht"
+                        required
+                        class="border border-gray-300 bg-white px-4 py-3 text-sm focus:outline-none focus:border-brand-black transition-colors resize-none"
+                     ></textarea>
                   </div>
 
                   <div>
-                     <button type="submit" class="bg-brand-black text-white px-8 py-3 font-semibold text-sm rounded-sm hover:opacity-90 inline-flex items-center transition-all active:scale-95">
+                     <button
+                        type="submit"
+                        class="bg-brand-black text-white px-8 py-3 font-semibold text-sm rounded-sm hover:opacity-90 inline-flex items-center transition-all active:scale-95"
+                     >
                         Verzend
-                        <img src="/pigeon-svg.svg" alt="" class="ml-2 w-4 h-4 invert" />
+                        <img
+                           src="/pigeon-svg.svg"
+                           alt=""
+                           class="ml-2 w-4 h-4 invert"
+                        />
                      </button>
                   </div>
                </form>
             </div>
+         </div>
+      </div>
 
-        </div>
-     </div>
-  </section>
-
-  {/* Reviews Section at bottom */}
-  <Reviews />
-  
+      {/* Reviews Section at bottom */}
+      <Reviews />
+   </section>
 </Layout>

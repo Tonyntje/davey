@@ -4,69 +4,83 @@ const reviews = [
     name: "Harry van Loon",
     rating: 5,
     text: "Lekker gewerkt pik! Super blij met de werkzaamheden die Davey verricht heeft. Alles zo mooi.",
-    image: "/vector-avatar-and-character-illustration-bundle.webp"
+    image: "/vector-avatar-and-character-illustration-bundle.webp",
   },
   {
     name: "Guido Toppas",
     rating: 5,
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquet vehicula lacinia. Aenean non mi ultricies, iaculis felis sit amet, imperdiet ipsum. Praesent egestas ligula ac dui euismod.",
-    image: "/vector-avatar-and-character-illustration-bundle.webp"
+    image: "/vector-avatar-and-character-illustration-bundle.webp",
   },
   {
     name: "Harry van Loon",
     rating: 5,
     text: "Lekker gewerkt pik! Super blij met de werkzaamheden die Davey verricht heeft. Alles zo mooi.",
-    image: "/vector-avatar-and-character-illustration-bundle.webp"
-  }
+    image: "/vector-avatar-and-character-illustration-bundle.webp",
+  },
 ];
 ---
 
 <section id="reviews" class="py-20 bg-white border-t border-gray-100">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    
-    <h2 class="text-3xl md:text-4xl font-playfair font-black text-black mb-2">
+    <h2 class="text-3xl md:text-4xl text-black mb-2">
       Wat denken anderen over Duif Tegelwerken?
     </h2>
     <div class="flex items-center justify-center mb-12">
-        <span class="text-base font-bold mr-2 text-black underline">Reviews van</span>
-        <div class="flex font-bold text-xl tracking-tighter">
-            <span class="text-[#4285F4]">G</span>
-            <span class="text-[#EA4335]">o</span>
-            <span class="text-[#FBBC05]">o</span>
-            <span class="text-[#4285F4]">g</span>
-            <span class="text-[#34A853]">l</span>
-            <span class="text-[#EA4335]">e</span>
-        </div>
+      <span class="text-base font-bold mr-2 text-black underline"
+        >Reviews van</span
+      >
+      <div class="flex font-bold text-xl tracking-tighter">
+        <span class="text-[#4285F4]">G</span>
+        <span class="text-[#EA4335]">o</span>
+        <span class="text-[#FBBC05]">o</span>
+        <span class="text-[#4285F4]">g</span>
+        <span class="text-[#34A853]">l</span>
+        <span class="text-[#EA4335]">e</span>
+      </div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {reviews.map((r) => (
-        <div class="bg-white border border-gray-200 p-8 text-left shadow-sm">
-          <div class="flex items-center space-x-4 mb-4">
-            <img src={r.image} alt={r.name} class="w-12 h-12 rounded-full object-cover shadow-sm bg-gray-100" />
-            <div>
-              <h3 class="font-playfair font-bold text-xl text-black">{r.name}</h3>
-              <div class="flex text-[#FBBC05] text-sm mt-1">
-                {'★'.repeat(r.rating)}
+      {
+        reviews.map((r) => (
+          <div class="bg-white border border-gray-200 p-8 text-left shadow-sm">
+            <div class="flex items-center space-x-4 mb-4">
+              <img
+                src={r.image}
+                alt={r.name}
+                class="w-12 h-12 rounded-full object-cover shadow-sm bg-gray-100"
+              />
+              <div>
+                <h3 class="font-playfair font-bold text-xl text-black">
+                  {r.name}
+                </h3>
+                <div class="flex text-[#FBBC05] text-sm mt-1">
+                  {"★".repeat(r.rating)}
+                </div>
               </div>
             </div>
+            <p class="text-sm leading-relaxed text-gray-700">{r.text}</p>
           </div>
-          <p class="text-sm leading-relaxed text-gray-700">
-            {r.text}
-          </p>
-        </div>
-      ))}
+        ))
+      }
     </div>
 
-    <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a href="#" class="bg-brand-black text-white px-8 py-3 font-semibold text-sm rounded-sm whitespace-nowrap inline-flex items-center hover:opacity-90 transition-opacity">
+    <div
+      class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
+    >
+      <a
+        href="#"
+        class="bg-brand-black text-white px-8 py-3 font-semibold text-sm rounded-sm whitespace-nowrap inline-flex items-center hover:opacity-90 transition-opacity"
+      >
         Review achterlaten
         <img src="/pigeon-svg.svg" alt="" class="ml-2 w-4 h-4 invert" />
       </a>
-      <a href="#" class="text-sm underline font-bold text-black border-l border-gray-300 pl-4">
+      <a
+        href="#"
+        class="text-sm underline font-bold text-black border-l border-gray-300 pl-4"
+      >
         of bekijk alle reviews
       </a>
     </div>
-
   </div>
 </section>
