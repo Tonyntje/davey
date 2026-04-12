@@ -4,18 +4,20 @@ const year = new Date().getFullYear();
 
 <footer
   class="bg-brand-beige border-t border-gray-200 pt-20 pb-8 mt-auto relative overflow-hidden"
+  role="contentinfo"
+  aria-label="Sitefooter"
 >
   {/* Big transparent pigeons on left and right */}
   <div
     class="hidden md:block absolute bottom-8 left-4 opacity-[0.06] pointer-events-none"
   >
-    <img src="/pigeon-svg.svg" alt="" class="w-[400px] h-auto" />
+    <img src="/pigeon-svg.svg" alt="" class="w-[400px] h-auto" aria-hidden="true" />
   </div>
   <div
     class="hidden md:block absolute bottom-8 right-4 opacity-[0.06] pointer-events-none"
     style="transform: scaleX(-1);"
   >
-    <img src="/pigeon-svg.svg" alt="" class="w-[400px] h-auto" />
+    <img src="/pigeon-svg.svg" alt="" class="w-[400px] h-auto" aria-hidden="true" />
   </div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -29,13 +31,13 @@ const year = new Date().getFullYear();
         >
           NAVIGATIE
         </h3>
-        <div class="grid grid-cols-2 gap-x-8 gap-y-3 text-sm font-medium">
+        <nav class="grid grid-cols-2 gap-x-8 gap-y-3 text-sm font-medium" aria-label="Voetnavigatie">
           <a href="/" class="hover:underline">Home</a>
           <a href="/over-mij" class="hover:underline">Over mij</a>
           <a href="/gallerij" class="hover:underline">Gallery</a>
           <a href="/contact" class="hover:underline">Contact</a>
           <a href="/sitemap" class="hover:underline">Sitemap</a>
-        </div>
+        </nav>
       </div>
 
       {/* Column 2: Logo + contact info with white background */}
@@ -80,12 +82,16 @@ const year = new Date().getFullYear();
 
         <form
           class="flex flex-col space-y-3"
+          aria-label="Snel contactformulier"
           onsubmit="event.preventDefault(); alert('Bedankt! We nemen z.s.m. contact met u op.');"
         >
+          <label for="footer-contact" class="sr-only">Uw e-mail of telefoonnummer</label>
           <input
+            id="footer-contact"
             type="text"
             placeholder="Voor je contact informatie in..."
             required
+            autocomplete="email"
             class="w-full bg-white border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-black transition-colors"
           />
           <div class="flex justify-end">

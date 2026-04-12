@@ -5,7 +5,8 @@ import Reviews from "../components/Reviews.astro";
 
 <Layout
   title="Over mij"
-  description="Leer meer over Davey van Duivenbode, de man achter Duif Tegelwerken."
+  description="Maak kennis met Davey van Duivenbode, tegelzetter met 9+ jaar ervaring. Duif Tegelwerken — vakmanschap in Den Haag en omstreken."
+  canonicalPath="/over-mij"
 >
   {/* Page Header */}
   <section class="py-20">
@@ -36,8 +37,12 @@ import Reviews from "../components/Reviews.astro";
         <div class="relative h-80 md:h-[500px] w-full">
           <img
             src="/image0.webp"
-            alt="Davey van Duivenbode"
+            alt="Davey van Duivenbode, oprichter Duif Tegelwerken"
             class="w-full h-full object-cover object-center shadow-xl"
+            loading="eager"
+            decoding="async"
+            width="640"
+            height="500"
           />
         </div>
       </div>
@@ -53,8 +58,12 @@ import Reviews from "../components/Reviews.astro";
       <div class="relative min-h-[400px]">
         <img
           src="/image4.webp"
-          alt="Detail hoekwerk"
+          alt="Detail hoekwerk door Duif Tegelwerken"
           class="w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
+          width="640"
+          height="480"
         />
       </div>
 
@@ -123,7 +132,7 @@ import Reviews from "../components/Reviews.astro";
               class="bg-brand-black text-white px-6 py-3 font-semibold text-sm rounded-sm hover:bg-gray-800 transition-colors inline-flex items-center"
             >
               Neem contact op
-              <img src="/pigeon-svg.svg" alt="" class="ml-2 w-4 h-4 invert" />
+              <img src="/pigeon-svg.svg" alt="" class="ml-2 w-4 h-4 invert" aria-hidden="true" />
             </a>
           </div>
         </div>
@@ -132,8 +141,12 @@ import Reviews from "../components/Reviews.astro";
         <div class="relative min-h-[400px]">
           <img
             src="/image22.webp"
-            alt="Vloerwerk"
+            alt="Vloertegels leg werk"
             class="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
+            width="640"
+            height="480"
           />
         </div>
       </div>
@@ -153,7 +166,7 @@ import Reviews from "../components/Reviews.astro";
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="bg-white p-8 shadow-sm border border-gray-100">
           <div class="mb-4">
-            <img src="/pigeon-svg.svg" alt="" class="w-10 h-10 opacity-60" />
+            <img src="/pigeon-svg.svg" alt="" class="w-10 h-10 opacity-60" aria-hidden="true" />
           </div>
           <h3 class="text-xl text-black mb-3">Vakmanschap</h3>
           <p class="text-sm text-gray-700 leading-relaxed">
@@ -197,8 +210,12 @@ import Reviews from "../components/Reviews.astro";
       <div class="relative h-80 md:h-96 w-full">
         <img
           src="/image13.webp"
-          alt="Tegelwerk detail"
+          alt="Tegelwerk detail door Duif Tegelwerken"
           class="w-full h-full object-cover shadow-xl"
+          loading="lazy"
+          decoding="async"
+          width="640"
+          height="480"
         />
       </div>
 

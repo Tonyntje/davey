@@ -7,34 +7,115 @@ import WhatsAppButton from "../components/WhatsAppButton.astro";
 interface Props {
 	title: string;
 	description?: string;
+	ogImage?: string;
+	canonicalPath?: string;
 }
 
 const {
 	title,
-	description = "Tegelwerk met passie en precisie. Maak kennis met Duif Tegelwerken.",
+	description = "Tegelwerk met passie en precisie. Duif Tegelwerken — specialist in badkamers, keukens en vloeren in Den Haag e.o.",
+	ogImage = "/image3.webp",
+	canonicalPath,
 } = Astro.props;
+
+const siteUrl = "https://duiftegelwerken.nl";
+const canonicalUrl = canonicalPath ? `${siteUrl}${canonicalPath}` : Astro.url.href;
+const fullTitle = title === "Home" ? "Duif Tegelwerken — Tegelwerk met passie en precisie" : `${title} | Duif Tegelwerken`;
+
+// LocalBusiness Structured Data (JSON-LD)
+const structuredData = {
+	"@context": "https://schema.org",
+	"@type": "LocalBusiness",
+	"name": "Duif Tegelwerken",
+	"description": "Professioneel tegelwerk in Den Haag en omstreken. Specialist in badkamers, keukens en vloeren.",
+	"url": siteUrl,
+	"telephone": "+31625123794",
+	"email": "info@duiftegelwerken.nl",
+	"address": {
+		"@type": "PostalAddress",
+		"addressLocality": "Den Haag",
+		"addressCountry": "NL"
+	},
+	"areaServed": {
+		"@type": "Place",
+		"name": "Den Haag en omstreken"
+	},
+	"founder": {
+		"@type": "Person",
+		"name": "Davey van Duivenbode"
+	},
+	"image": `${siteUrl}/image3.webp`,
+	"priceRange": "$$",
+	"openingHoursSpecification": {
+		"@type": "OpeningHoursSpecification",
+		"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+		"opens": "08:00",
+		"closes": "17:00"
+	}
+};
 ---
 
 <!doctype html>
 <html lang="nl" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- SEO Core -->
+		<title>{fullTitle}</title>
 		<meta name="description" content={description} />
-		<meta name="viewport" content="width=device-width" />
+		<link rel="canonical" href={canonicalUrl} />
+		<meta name="robots" content="index, follow" />
+		<meta name="author" content="Duif Tegelwerken" />
+		<meta name="geo.region" content="NL-ZH" />
+		<meta name="geo.placename" content="Den Haag" />
+
+		<!-- Open Graph / Social -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={fullTitle} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:image" content={`${siteUrl}${ogImage}`} />
+		<meta property="og:locale" content="nl_NL" />
+		<meta property="og:site_name" content="Duif Tegelwerken" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={fullTitle} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+
+		<!-- Favicon -->
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<style>
-			@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
-		</style>
-		<title>{title} | Duif Tegelwerken</title>
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+		<!-- Fonts: preconnect for speed, then load -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+		/>
+
+		<!-- Structured Data (JSON-LD) -->
+		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 	</head>
 	<body
 		class="bg-[#fdfdfd] text-[#1a1a1a] font-roboto antialiased flex flex-col min-h-screen relative"
 	>
+		<!-- Skip-to-content link for keyboard/screen-reader users -->
+		<a
+			href="#main-content"
+			class="sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-[100] focus:bg-brand-black focus:text-white focus:px-6 focus:py-3 focus:text-sm focus:font-semibold"
+		>
+			Ga naar hoofdinhoud
+		</a>
+
 		{/* Pattern background with white fade */}
 		<div class="pattern-bg" aria-hidden="true"></div>
 
 		<Header client:load />
-		<main class="flex-grow relative z-10">
+		<main id="main-content" class="flex-grow relative z-10" role="main">
 			<slot />
 		</main>
 		<Footer />

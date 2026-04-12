@@ -5,7 +5,8 @@ import Reviews from "../components/Reviews.astro";
 
 <Layout
    title="Contact"
-   description="Heb je een tegelklus in gedachten? Neem direct contact op met Duif Tegelwerken."
+   description="Heb je een tegelklus in gedachten? Neem direct contact op met Duif Tegelwerken voor een vrijblijvend adviesgesprek."
+   canonicalPath="/contact"
 >
    {/* Header Section */}
    <section class="py-20">
@@ -118,38 +119,41 @@ import Reviews from "../components/Reviews.astro";
 
                <form
                   class="space-y-6"
+                  aria-label="Contactformulier"
                   onsubmit="event.preventDefault(); alert('Bedankt! We nemen z.s.m. contact met u op.');"
                >
                   <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                      <div class="flex flex-col">
-                        <label class="text-sm font-bold mb-2 text-gray-800"
-                           >Naam</label
-                        >
+                        <label for="contact-name" class="text-sm font-bold mb-2 text-gray-800">Naam</label>
                         <input
+                           id="contact-name"
                            type="text"
-                           placeholder="Voor je contact informatie in..."
+                           name="name"
+                           placeholder="Uw naam"
                            required
+                           autocomplete="name"
                            class="border border-gray-300 bg-white px-4 py-3 text-sm focus:outline-none focus:border-brand-black transition-colors"
                         />
                      </div>
                      <div class="flex flex-col">
-                        <label class="text-sm font-bold mb-2 text-gray-800"
-                           >Email adres</label
-                        >
+                        <label for="contact-email" class="text-sm font-bold mb-2 text-gray-800">Email adres</label>
                         <input
+                           id="contact-email"
                            type="email"
-                           placeholder="Voor je contact informatie in..."
+                           name="email"
+                           placeholder="Uw e-mailadres"
                            required
+                           autocomplete="email"
                            class="border border-gray-300 bg-white px-4 py-3 text-sm focus:outline-none focus:border-brand-black transition-colors"
                         />
                      </div>
                   </div>
 
                   <div class="flex flex-col">
-                     <label class="text-sm font-bold mb-2 text-gray-800"
-                        >Soort klus</label
-                     >
+                     <label for="contact-message" class="text-sm font-bold mb-2 text-gray-800">Soort klus</label>
                      <textarea
+                        id="contact-message"
+                        name="message"
                         rows="4"
                         placeholder="Omschrijf hier uw opdracht"
                         required
@@ -167,6 +171,7 @@ import Reviews from "../components/Reviews.astro";
                            src="/pigeon-svg.svg"
                            alt=""
                            class="ml-2 w-4 h-4 invert"
+                           aria-hidden="true"
                         />
                      </button>
                   </div>

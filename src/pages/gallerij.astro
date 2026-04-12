@@ -30,42 +30,43 @@ const projects = [
 
 // All images for the masonry grid
 const allImages = [
-  { src: "/image0.webp", alt: "Project foto" },
-  { src: "/image1.webp", alt: "Project foto" },
-  { src: "/image2.webp", alt: "Project foto" },
-  { src: "/image3.webp", alt: "Project foto" },
-  { src: "/image4.webp", alt: "Project foto" },
-  { src: "/image5.webp", alt: "Project foto" },
-  { src: "/image6.webp", alt: "Project foto" },
-  { src: "/image7.webp", alt: "Project foto" },
-  { src: "/image8.webp", alt: "Project foto" },
-  { src: "/image9.webp", alt: "Project foto" },
-  { src: "/image10.webp", alt: "Project foto" },
-  { src: "/image11.webp", alt: "Project foto" },
-  { src: "/image12.webp", alt: "Project foto" },
-  { src: "/image13.webp", alt: "Project foto" },
-  { src: "/image14.webp", alt: "Project foto" },
-  { src: "/image15.webp", alt: "Project foto" },
-  { src: "/image16.webp", alt: "Project foto" },
-  { src: "/image17.webp", alt: "Project foto" },
-  { src: "/image19.webp", alt: "Project foto" },
-  { src: "/image20.webp", alt: "Project foto" },
-  { src: "/image21.webp", alt: "Project foto" },
-  { src: "/image22.webp", alt: "Project foto" },
-  { src: "/image23.webp", alt: "Project foto" },
-  { src: "/image24.webp", alt: "Project foto" },
-  { src: "/image25.webp", alt: "Project foto" },
-  { src: "/image26.webp", alt: "Project foto" },
-  { src: "/image27.webp", alt: "Project foto" },
-  { src: "/image28.webp", alt: "Project foto" },
-  { src: "/image29.webp", alt: "Project foto" },
-  { src: "/image30.webp", alt: "Project foto" },
+  { src: "/image0.webp", alt: "Tegelzetter aan het werk" },
+  { src: "/image1.webp", alt: "Badkamer wandtegels" },
+  { src: "/image2.webp", alt: "Davey van Duivenbode tegelt een wand" },
+  { src: "/image3.webp", alt: "Keuken achterwand project" },
+  { src: "/image4.webp", alt: "Badkamer hoekafwerking" },
+  { src: "/image5.webp", alt: "Doucheruimte met grote tegels" },
+  { src: "/image6.webp", alt: "Keukenwand tegelwerk" },
+  { src: "/image7.webp", alt: "Keuken spatwand detail" },
+  { src: "/image8.webp", alt: "Toilet renovatie" },
+  { src: "/image9.webp", alt: "Kleine ruimte tegelwerk" },
+  { src: "/image10.webp", alt: "Tegelwerk afwerking" },
+  { src: "/image11.webp", alt: "Vloertegel patroon" },
+  { src: "/image12.webp", alt: "Badkamer vloer" },
+  { src: "/image13.webp", alt: "Tegelwerk detail" },
+  { src: "/image14.webp", alt: "Wandtegel project" },
+  { src: "/image15.webp", alt: "Vloer afwerking" },
+  { src: "/image16.webp", alt: "Badkamer renovatie" },
+  { src: "/image17.webp", alt: "Tegels in patroon" },
+  { src: "/image19.webp", alt: "Douche tegelwerk" },
+  { src: "/image20.webp", alt: "Vloerwerk project" },
+  { src: "/image21.webp", alt: "Tegelwerk overzicht" },
+  { src: "/image22.webp", alt: "Vloertegels in visgraatpatroon" },
+  { src: "/image23.webp", alt: "Tegelwerk resultaat" },
+  { src: "/image24.webp", alt: "Afgewerkte badkamer" },
+  { src: "/image25.webp", alt: "Tegelwerk hoekdetail" },
+  { src: "/image26.webp", alt: "Vloer tegelproject" },
+  { src: "/image27.webp", alt: "Wandtegels resultaat" },
+  { src: "/image28.webp", alt: "Keuken tegelwerk" },
+  { src: "/image29.webp", alt: "Toilet tegelproject" },
+  { src: "/image30.webp", alt: "Afgewerkt tegelproject" },
 ];
 ---
 
 <Layout
   title="Projecten"
-  description="Bekijk de projecten van Duif Tegelwerken. Van badkamers tot keukens en vloeren."
+  description="Bekijk de projecten van Duif Tegelwerken. Van badkamerrenovaties tot strakke keukenwanden en prachtige vloeren in Den Haag."
+  canonicalPath="/gallerij"
 >
   {/* Page Header */}
   <section class="py-20">
@@ -88,86 +89,26 @@ const allImages = [
             class="bg-brand-black text-white px-6 py-3 font-semibold text-sm rounded-sm hover:opacity-90 inline-flex items-center transition-all"
           >
             Neem contact op
-            <img src="/pigeon-svg.svg" alt="" class="ml-2 w-4 h-4 invert" />
+            <img
+              src="/pigeon-svg.svg"
+              alt=""
+              class="ml-2 w-4 h-4 invert"
+              aria-hidden="true"
+            />
           </a>
         </div>
 
         <div class="relative h-80 md:h-96 w-full">
           <img
             src="/image3.webp"
-            alt="Duif Tegelwerken project"
+            alt="Keuken achterwand project door Duif Tegelwerken"
             class="w-full h-full object-cover shadow-xl"
+            loading="eager"
+            decoding="async"
+            width="640"
+            height="480"
           />
         </div>
-      </div>
-    </div>
-  </section>
-
-  {/* Featured Projects */}
-  <section class="py-20 bg-[#efefef]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl text-black mb-2">
-        Uitgelichte projecten
-      </h2>
-      <p class="text-sm text-gray-600 mb-12">
-        Klik op een project voor meer foto's
-      </p>
-
-      <div class="space-y-16">
-        {
-          projects.map((project, idx) => (
-            <div
-              class={`grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch bg-white shadow-sm overflow-hidden ${idx % 2 !== 0 ? "md:direction-rtl" : ""}`}
-            >
-              {/* Image Grid */}
-              <div
-                class={`grid grid-cols-2 gap-1 min-h-[350px] ${idx % 2 !== 0 ? "md:order-2" : ""}`}
-              >
-                <div class="col-span-2">
-                  <img
-                    src={project.images[0]}
-                    alt={project.title}
-                    class="w-full h-56 object-cover"
-                  />
-                </div>
-                <div>
-                  <img
-                    src={project.images[1]}
-                    alt={project.title}
-                    class="w-full h-40 object-cover"
-                  />
-                </div>
-                <div>
-                  <img
-                    src={project.images[2]}
-                    alt={project.title}
-                    class="w-full h-40 object-cover"
-                  />
-                </div>
-              </div>
-
-              {/* Text */}
-              <div
-                class={`flex flex-col justify-center p-8 md:p-12 ${idx % 2 !== 0 ? "md:order-1" : ""}`}
-              >
-                <h3 class="text-2xl md:text-3xl text-black mb-4">
-                  {project.title}
-                </h3>
-                <p class="text-sm text-gray-700 leading-relaxed mb-6">
-                  {project.description}
-                </p>
-                <div>
-                  <a
-                    href="/contact"
-                    class="text-sm font-bold underline text-brand-black hover:text-gray-600"
-                  >
-                    Vergelijkbaar project? Neem contact op →
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))
-        }
       </div>
     </div>
   </section>
@@ -191,6 +132,9 @@ const allImages = [
                 alt={img.alt}
                 class="w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
+                decoding="async"
+                width="400"
+                height="300"
               />
             </div>
           ))
@@ -215,7 +159,12 @@ const allImages = [
         class="bg-brand-black text-white px-8 py-3 font-semibold text-sm rounded-sm hover:opacity-90 inline-flex items-center transition-all"
       >
         Neem contact op
-        <img src="/pigeon-svg.svg" alt="" class="ml-2 w-4 h-4 invert" />
+        <img
+          src="/pigeon-svg.svg"
+          alt=""
+          class="ml-2 w-4 h-4 invert"
+          aria-hidden="true"
+        />
       </a>
     </div>
   </section>

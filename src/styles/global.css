@@ -2,15 +2,17 @@
 
 @theme {
   --font-roboto: "Roboto", sans-serif;
-  --color-brand-beige: #F4F1ED;
+  --font-playfair: "Playfair Display", serif;
+
+  --color-brand-beige: #f4f1ed;
   --color-brand-black: #111111;
-  --color-brand-gray: #4A4A4A;
+  --color-brand-gray: #4a4a4a;
 }
 
 /* Custom base styles */
 @layer base {
   body {
-    font-family: "font-roboto";
+    @apply font-roboto text-brand-black;
   }
 
   h1,
@@ -19,8 +21,25 @@
   h4,
   h5,
   h6 {
-    font-family: "Playfair Display", serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
+    @apply font-playfair;
+    font-weight: 900;
+  }
+
+  /* A11y: visible focus rings for keyboard users */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-black;
+  }
+
+  /* A11y: Respect prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }

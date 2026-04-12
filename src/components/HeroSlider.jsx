@@ -67,23 +67,31 @@ export default function HeroSlider() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-      <div className="relative w-full aspect-[16/7] md:aspect-[16/7] overflow-hidden shadow-xl bg-brand-black">
+      <div className="relative w-full aspect-[16/7] md:aspect-[16/7] overflow-hidden shadow-xl bg-brand-black" role="region" aria-roledescription="carrousel" aria-label="Foto's van uitgevoerde projecten">
         {/* Images */}
         {slides.map((slide, idx) => (
           <div
             key={idx}
             className={`absolute inset-0 transition-opacity duration-700 ${idx === current ? 'opacity-100' : 'opacity-0'}`}
+            aria-hidden={idx !== current}
+            role="group"
+            aria-roledescription="dia"
+            aria-label={`Dia ${idx + 1} van ${slides.length}: ${slide.alt}`}
           >
             <img
               src={slide.image}
               alt={slide.alt}
               className="w-full h-full object-cover"
+              loading={idx === 0 ? 'eager' : 'lazy'}
+              decoding="async"
+              width="1280"
+              height="560"
             />
           </div>
         ))}
 
         {/* Gradient overlay — dark bottom for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" aria-hidden="true"></div>
 
         {/* Text overlay — relies on gradient, no bg */}
         <div className="absolute bottom-0 left-0 p-6 md:p-10 lg:p-14 z-10">
@@ -112,6 +120,11 @@ export default function HeroSlider() {
             className="h-full bg-white transition-none"
             style={{ width: `${progress}%` }}
           ></div>
+        </div>
+
+        {/* Screen reader live region for slide changes */}
+        <div className="sr-only" aria-live="polite" aria-atomic="true">
+          Dia {current + 1} van {slides.length}: {slides[current].alt}
         </div>
       </div>
     </div>
