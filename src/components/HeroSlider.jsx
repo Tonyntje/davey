@@ -3,15 +3,15 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const slides = [
   {
-    image: "/image3.jpeg",
+    image: "/image3.webp",
     alt: "Kitchen backsplash"
   },
   {
-    image: "/image2.jpeg",
+    image: "/image2.webp",
     alt: "Bathroom shower marble"
   },
   {
-    image: "/image22.jpeg",
+    image: "/image22.webp",
     alt: "Floor tiles pattern"
   }
 ];

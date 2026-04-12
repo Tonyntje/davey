@@ -6,8 +6,8 @@ export default function Header() {
 
   const navLinks = [
     { title: 'HOME', href: '/', isHome: true },
-    { title: 'PROJECTEN', href: '/#projecten' },
-    { title: 'OVER MIJ', href: '/#over-mij' },
+    { title: 'PROJECTEN', href: '/gallerij' },
+    { title: 'OVER MIJ', href: '/over-mij' },
     { title: 'REVIEWS', href: '/#reviews' },
     { title: 'CONTACT', href: '/contact' },
   ];

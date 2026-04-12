@@ -1,0 +1,222 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Organize images into project categories for a professional gallery
+const projects = [
+  {
+    title: "Complete badkamer renovatie",
+    description:
+      "Een volledige badkamerrenovatie met grote vloertegels, wandtegels en een inloopdouche.",
+    images: ["/image3.webp", "/image4.webp", "/image5.webp"],
+  },
+  {
+    title: "Keuken wandtegels",
+    description:
+      "Strakke wandtegels achter het keukenblad, tot in de punt afgewerkt.",
+    images: ["/image2.webp", "/image6.webp", "/image7.webp"],
+  },
+  {
+    title: "Vloerwerk",
+    description:
+      "Diverse vloerprojecten met verschillende patronen en materialen.",
+    images: ["/image22.webp", "/image20.webp", "/image26.webp"],
+  },
+  {
+    title: "Toilet & kleine ruimtes",
+    description: "Ook kleine ruimtes verdienen de beste afwerking.",
+    images: ["/image8.webp", "/image9.webp", "/image10.webp"],
+  },
+];
+
+// All images for the masonry grid
+const allImages = [
+  { src: "/image0.webp", alt: "Project foto" },
+  { src: "/image1.webp", alt: "Project foto" },
+  { src: "/image2.webp", alt: "Project foto" },
+  { src: "/image3.webp", alt: "Project foto" },
+  { src: "/image4.webp", alt: "Project foto" },
+  { src: "/image5.webp", alt: "Project foto" },
+  { src: "/image6.webp", alt: "Project foto" },
+  { src: "/image7.webp", alt: "Project foto" },
+  { src: "/image8.webp", alt: "Project foto" },
+  { src: "/image9.webp", alt: "Project foto" },
+  { src: "/image10.webp", alt: "Project foto" },
+  { src: "/image11.webp", alt: "Project foto" },
+  { src: "/image12.webp", alt: "Project foto" },
+  { src: "/image13.webp", alt: "Project foto" },
+  { src: "/image14.webp", alt: "Project foto" },
+  { src: "/image15.webp", alt: "Project foto" },
+  { src: "/image16.webp", alt: "Project foto" },
+  { src: "/image17.webp", alt: "Project foto" },
+  { src: "/image19.webp", alt: "Project foto" },
+  { src: "/image20.webp", alt: "Project foto" },
+  { src: "/image21.webp", alt: "Project foto" },
+  { src: "/image22.webp", alt: "Project foto" },
+  { src: "/image23.webp", alt: "Project foto" },
+  { src: "/image24.webp", alt: "Project foto" },
+  { src: "/image25.webp", alt: "Project foto" },
+  { src: "/image26.webp", alt: "Project foto" },
+  { src: "/image27.webp", alt: "Project foto" },
+  { src: "/image28.webp", alt: "Project foto" },
+  { src: "/image29.webp", alt: "Project foto" },
+  { src: "/image30.webp", alt: "Project foto" },
+];
+---
+
+<Layout
+  title="Projecten"
+  description="Bekijk de projecten van Duif Tegelwerken. Van badkamers tot keukens en vloeren."
+>
+  {/* Page Header */}
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h1 class="text-5xl md:text-6xl text-black mb-6">Projecten</h1>
+          <h2 class="text-lg font-bold mb-6 text-gray-900">
+            Een selectie van mijn werk
+          </h2>
+          <p class="text-sm text-gray-700 leading-relaxed max-w-lg mb-8">
+            Hieronder vindt u een selectie van recente projecten. Van complete
+            badkamerrenovaties tot strakke keukenwanden en prachtige vloeren.
+            Elk project wordt met dezelfde precisie en oog voor detail
+            uitgevoerd. Bekijk de foto's en laat u inspireren voor uw eigen
+            project.
+          </p>
+          <a
+            href="/contact"
+            class="bg-brand-black text-white px-6 py-3 font-semibold text-sm rounded-sm hover:opacity-90 inline-flex items-center transition-all"
+          >
+            Neem contact op
+            <img src="/pigeon-svg.svg" alt="" class="ml-2 w-4 h-4 invert" />
+          </a>
+        </div>
+
+        <div class="relative h-80 md:h-96 w-full">
+          <img
+            src="/image3.webp"
+            alt="Duif Tegelwerken project"
+            class="w-full h-full object-cover shadow-xl"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Featured Projects */}
+  <section class="py-20 bg-[#efefef]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl text-black mb-2">
+        Uitgelichte projecten
+      </h2>
+      <p class="text-sm text-gray-600 mb-12">
+        Klik op een project voor meer foto's
+      </p>
+
+      <div class="space-y-16">
+        {
+          projects.map((project, idx) => (
+            <div
+              class={`grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch bg-white shadow-sm overflow-hidden ${idx % 2 !== 0 ? "md:direction-rtl" : ""}`}
+            >
+              {/* Image Grid */}
+              <div
+                class={`grid grid-cols-2 gap-1 min-h-[350px] ${idx % 2 !== 0 ? "md:order-2" : ""}`}
+              >
+                <div class="col-span-2">
+                  <img
+                    src={project.images[0]}
+                    alt={project.title}
+                    class="w-full h-56 object-cover"
+                  />
+                </div>
+                <div>
+                  <img
+                    src={project.images[1]}
+                    alt={project.title}
+                    class="w-full h-40 object-cover"
+                  />
+                </div>
+                <div>
+                  <img
+                    src={project.images[2]}
+                    alt={project.title}
+                    class="w-full h-40 object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* Text */}
+              <div
+                class={`flex flex-col justify-center p-8 md:p-12 ${idx % 2 !== 0 ? "md:order-1" : ""}`}
+              >
+                <h3 class="text-2xl md:text-3xl text-black mb-4">
+                  {project.title}
+                </h3>
+                <p class="text-sm text-gray-700 leading-relaxed mb-6">
+                  {project.description}
+                </p>
+                <div>
+                  <a
+                    href="/contact"
+                    class="text-sm font-bold underline text-brand-black hover:text-gray-600"
+                  >
+                    Vergelijkbaar project? Neem contact op →
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* Full Gallery Grid */}
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl text-black mb-2 text-center">
+        Alle foto's
+      </h2>
+      <p class="text-sm text-gray-600 mb-12 text-center">
+        Een overzicht van ons vakmanschap
+      </p>
+
+      <div class="columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3">
+        {
+          allImages.map((img) => (
+            <div class="break-inside-avoid group overflow-hidden">
+              <img
+                src={img.src}
+                alt={img.alt}
+                class="w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* CTA Section */}
+  <section class="py-20 bg-brand-beige">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl text-black mb-6">
+        Geïnspireerd geraakt?
+      </h2>
+      <p class="text-sm text-gray-700 leading-relaxed mb-8 max-w-lg mx-auto">
+        Heeft u een soortgelijk project in gedachten of wilt u meer weten over
+        de mogelijkheden? Neem gerust contact op voor een vrijblijvend
+        adviesgesprek.
+      </p>
+      <a
+        href="/contact"
+        class="bg-brand-black text-white px-8 py-3 font-semibold text-sm rounded-sm hover:opacity-90 inline-flex items-center transition-all"
+      >
+        Neem contact op
+        <img src="/pigeon-svg.svg" alt="" class="ml-2 w-4 h-4 invert" />
+      </a>
+    </div>
+  </section>
+</Layout>
