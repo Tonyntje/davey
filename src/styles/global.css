@@ -7,6 +7,19 @@
   --color-brand-beige: #f4f1ed;
   --color-brand-black: #111111;
   --color-brand-gray: #4a4a4a;
+
+  --animate-fade-in: fade-in 0.2s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* Custom base styles */
