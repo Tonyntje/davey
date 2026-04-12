@@ -36,30 +36,33 @@ export default function GalleryLightbox({ images }) {
       {/* Masonry Grid */}
       <div className="columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3">
         {images.map((img, idx) => (
-          <button
-            key={img.src}
-            type="button"
-            className="break-inside-avoid group overflow-hidden block w-full text-left cursor-pointer border-0 p-0 bg-transparent"
-            onClick={() => setActiveIndex(idx)}
-            aria-label={`Foto openen: ${img.alt}`}
-          >
-            <img
-              src={img.src}
-              alt={img.alt}
-              className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              loading="lazy"
-              decoding="async"
-              width="400"
-              height="300"
-            />
-          </button>
+          <div key={img.src} className="break-inside-avoid">
+            <button
+              type="button"
+              className="block w-full text-left cursor-pointer border-0 p-0 bg-transparent overflow-hidden"
+              onClick={() => setActiveIndex(idx)}
+              aria-label={`Foto openen: ${img.alt}`}
+            >
+              <div className="overflow-hidden">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full block object-cover transition-transform duration-500 hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
+                  width="400"
+                  height="300"
+                />
+              </div>
+            </button>
+          </div>
         ))}
       </div>
 
       {/* Lightbox Modal */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-[9999] flex items-center justify-center"
+          className="fixed mt-[112px] inset-0 z-[999] flex items-center justify-center"
           role="dialog"
           aria-modal="true"
           aria-label={`Foto ${activeIndex + 1} van ${images.length}: ${images[activeIndex].alt}`}
@@ -74,7 +77,7 @@ export default function GalleryLightbox({ images }) {
           {/* Close button */}
           <button
             onClick={close}
-            className="absolute top-4 right-4 z-10 text-white/80 hover:text-white transition-colors cursor-pointer bg-transparent border-0 p-2"
+            className="absolute top-4 z-20 right-4 z-10 text-white/80 hover:text-white transition-colors cursor-pointer bg-transparent border-0 p-2"
             aria-label="Sluiten"
           >
             <X className="w-8 h-8" />
@@ -114,7 +117,7 @@ export default function GalleryLightbox({ images }) {
           </div>
 
           {/* Thumbnail strip */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-1.5 max-w-[90vw] overflow-x-auto py-2 px-1">
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex flex-wrap gap-1 py-2 px-1">
             {images.map((img, idx) => (
               <button
                 key={img.src}

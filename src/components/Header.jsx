@@ -30,7 +30,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="w-full sticky top-0 z-50" role="banner">
+    <header className="w-full sticky top-0 z-20" role="banner">
       {/* Top bar with contact info */}
       <div className="bg-[#efefef]" aria-label="Contactgegevens">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-end items-center h-8 space-x-6 text-xs font-medium">
