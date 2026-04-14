@@ -156,7 +156,7 @@ const year = new Date().getFullYear();
             status.className = 'hidden';
 
             try {
-              const res = await fetch('/send-mail.php', {
+              const res = await fetch('/api/send-mail', {
                 method: 'POST',
                 body: new FormData(form),
               });
