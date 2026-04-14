@@ -7,6 +7,7 @@ import node from '@astrojs/node';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://www.duiftegelwerken.nl',
   output: 'server',
   adapter: node({ mode: 'standalone' }),
   build: {
